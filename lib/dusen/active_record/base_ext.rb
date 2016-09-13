@@ -55,7 +55,7 @@ module Dusen
           private
 
           define_method :create_initial_search_text_record do
-            ensure_search_text_record_built(:stale => true)
+            ensure_search_text_record_built(:needs_update => true)
             search_text_record.save!
           end
 
@@ -121,4 +121,3 @@ module Dusen
 end
 
 ActiveRecord::Base.send(:extend, Dusen::ActiveRecord::BaseExt::ClassMethods)
-

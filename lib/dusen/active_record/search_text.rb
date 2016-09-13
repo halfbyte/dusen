@@ -10,11 +10,11 @@ module Dusen
 
       def update_words!(text)
         text = Util.normalize_word_boundaries(text)
-        update_attributes!(:words => text, :stale => false)
+        update_attributes!(:words => text, :needs_update => false)
       end
 
       def invalidate!
-        update_attributes!(:stale => true)
+        update_attributes!(:needs_update => true)
       end
 
       def self.for_model(model)
@@ -22,7 +22,7 @@ module Dusen
       end
 
       def self.invalid
-        scoped(:conditions => { :stale => true })
+        scoped(:conditions => { :needs_update => true })
       end
 
       def self.synchronize_model(model)

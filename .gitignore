@@ -5,5 +5,4 @@ pkg
 app_root/log/*
 spec/shared/app_root/db/*.db
 spec/shared/app_root/config/database.yml
-
-
+Gemfile.lock
