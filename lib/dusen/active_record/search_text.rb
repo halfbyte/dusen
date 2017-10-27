@@ -37,7 +37,7 @@ module Dusen
           end
         end
         if pending_source_ids.present?
-          invalid_index_records.delete_all(:source_id => pending_source_ids.to_a)
+          invalid_index_records.where(:source_id => pending_source_ids.to_a).delete_all
         end
         true
       end
